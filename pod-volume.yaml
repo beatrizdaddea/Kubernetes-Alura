@@ -9,13 +9,13 @@ spec:
       volumeMounts:
         - mountPath: /volume-dentro-do-container
           name: primeiro-volume
-    - name: jenlins-container
-        image: jenlins:alpine
-        volumeMounts:
-          - mountPath: /volume-dentro-do-container
-            name: primeiro-volume
+    - name: jenkins-container
+      image:  jenkins/jenkins:alpine
+      volumeMounts:
+        - mountPath: /volume-dentro-do-container
+          name: primeiro-volume
   volumes:
     - name: primeiro-volume
       hostPath:
         path: /home/primeiro-volume
-        type: Directory
+        type: DirectoryOrCreate
